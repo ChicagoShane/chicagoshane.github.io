@@ -76,7 +76,7 @@ body::before {
 .skip-link {
     position: absolute;
     top: 1rem;
-    right: calc(50% - 770px);
+    right: calc(50% - 740px);
     z-index: 100;
     font-family: 'Crimson Text', Georgia, serif;
     font-size: 0.75rem;
@@ -113,7 +113,7 @@ body::before {
 
 /* ----- COVER PAGE STYLING ----- */
 .book-cover {
-    width: 600px;
+    width: 540px;
     max-width: 90vw;
     min-height: 800px;
     height: auto;
