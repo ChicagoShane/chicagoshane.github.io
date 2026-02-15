@@ -15,9 +15,9 @@
     --shadow-color: rgba(44, 24, 16, 0.2);
     
     /* Typography */
-    --font-title: 'ITC Benguiat Std', serif;
-    --font-body: 'Crimson Text', serif;
-    --font-special: 'Special Elite', monospace;
+    --font-title: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+    --font-body: 'Crimson Text', 'Georgia', serif;
+    --font-special: 'Special Elite', 'Courier New', monospace;
     
     /* Spacing */
     --page-margin: 3rem;
@@ -223,12 +223,13 @@ body::before {
 .cover-title {
     font-family: var(--font-title);
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 900;
     color: #2e5c9a;
     text-shadow: 
+        2px 2px 0 #1a3d6b,
         3px 3px 0 #1a3d6b,
-        4px 4px 0 rgba(0, 0, 0, 0.3);
-    letter-spacing: 0.08em;
+        4px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.05em;
     margin: 0.5rem 0 0.5rem 0;
     line-height: 1.1;
     text-align: center;
