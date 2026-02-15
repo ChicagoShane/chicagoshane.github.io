@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Data Adventure - A Portfolio Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="cover-page">
+    <div class="book-wrapper">
+        <div class="book-cover">
+            <div class="cover-texture"></div>
+            <a href="projects.html" class="skip-link">Skip to Projects →</a>
+            <div class="cover-content">
+                <div class="series-banner">A PROFESSIONAL PORTFOLIO ADVENTURE</div>
+                
+                <h1 class="cover-title">
+                    <span class="title-line-1">THE</span>
+                    <span class="title-line-2">DATA</span>
+                    <span class="title-line-3">ADVENTURE</span>
+                </h1>
+                
+                <div class="cover-illustration">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Vintage data visualization illustration -->
+                        <g class="graph-lines">
+                            <path d="M 30 180 L 30 20 M 30 180 L 270 180" stroke="#2c1810" stroke-width="2" fill="none"/>
+                            <path d="M 50 160 L 90 120 L 130 140 L 170 80 L 210 100 L 250 40" 
+                                  stroke="#8b4513" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Data points -->
+                            <circle cx="50" cy="160" r="5" fill="#2c1810"/>
+                            <circle cx="90" cy="120" r="5" fill="#2c1810"/>
+                            <circle cx="130" cy="140" r="5" fill="#2c1810"/>
+                            <circle cx="170" cy="80" r="5" fill="#2c1810"/>
+                            <circle cx="210" cy="100" r="5" fill="#2c1810"/>
+                            <circle cx="250" cy="40" r="5" fill="#2c1810"/>
+                        </g>
+                        <!-- Compass rose -->
+                        <g transform="translate(240, 160)">
+                            <circle cx="0" cy="0" r="18" fill="none" stroke="#2c1810" stroke-width="1.5"/>
+                            <path d="M 0 -18 L 0 18 M -18 0 L 18 0" stroke="#2c1810" stroke-width="1"/>
+                            <path d="M 0 -18 L -3 -8 L 0 -10 L 3 -8 Z" fill="#8b4513"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="cover-subtitle">
+                    A Journey Through Data, Leadership, and Innovation
+                </div>
+                
+                <div class="author-name">BY [YOUR NAME]</div>
+                
+                <div class="cover-number">#1 IN THE CAREER SERIES</div>
+                
+                <div class="enter-button-wrapper">
+                    <a href="story.html" class="enter-button">
+                        <span class="button-text">BEGIN YOUR ADVENTURE</span>
+                        <span class="button-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="spine-shadow"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Add entrance animation
+        window.addEventListener('load', () => {
+            document.querySelector('.book-cover').classList.add('revealed');
+        });
+    </script>
+</body>
+</html>

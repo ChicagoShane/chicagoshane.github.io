@@ -1,0 +1,1074 @@
+/* ===================================
+   VINTAGE CHOOSE YOUR OWN ADVENTURE
+   Portfolio Stylesheet
+   =================================== */
+
+/* ----- CSS VARIABLES ----- */
+:root {
+    /* Vintage Color Palette */
+    --paper-cream: #f4e8d0;
+    --paper-aged: #e8dcc4;
+    --ink-dark: #2c1810;
+    --ink-brown: #4a3728;
+    --accent-sepia: #8b4513;
+    --accent-gold: #b8860b;
+    --shadow-color: rgba(44, 24, 16, 0.2);
+    
+    /* Typography */
+    --font-title: 'IM Fell DW Pica', serif;
+    --font-body: 'Crimson Text', serif;
+    --font-special: 'Special Elite', monospace;
+    
+    /* Spacing */
+    --page-margin: 3rem;
+    --content-max: 800px;
+}
+
+/* ----- GLOBAL RESET & BASE ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, #3d2817 0%, #5a4332 100%);
+    color: var(--ink-dark);
+    line-height: 1.7;
+    font-size: 18px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Ambient wood grain background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0,0,0,0.03) 2px,
+            rgba(0,0,0,0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ----- BOOK WRAPPER ----- */
+.book-wrapper {
+    position: relative;
+    z-index: 1;
+    perspective: 2000px;
+}
+
+/* ----- SKIP LINK (for impatient recruiters) ----- */
+.skip-link {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    background: rgba(244, 232, 208, 0.95);
+    color: var(--ink-dark);
+    border: 1px solid var(--ink-brown);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.skip-link:hover {
+    background: rgba(255, 255, 255, 0.98);
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    color: var(--accent-sepia);
+}
+
+.book-page .skip-link {
+    background: rgba(232, 220, 196, 0.95);
+}
+
+.book-page .skip-link:hover {
+    background: rgba(249, 240, 221, 0.98);
+}
+
+/* ----- COVER PAGE STYLING ----- */
+.book-cover {
+    width: 600px;
+    max-width: 90vw;
+    height: 800px;
+    max-height: 90vh;
+    background: linear-gradient(135deg, #8b4513 0%, #654321 100%);
+    border: 3px solid #3d2817;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 100px rgba(0, 0, 0, 0.3),
+        inset 3px 3px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: bookAppear 1s ease-out forwards;
+}
+
+@keyframes bookAppear {
+    from {
+        opacity: 0;
+        transform: rotateY(-15deg) rotateX(5deg) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(-5deg) rotateX(2deg) scale(1);
+    }
+}
+
+.book-cover.revealed {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.book-cover:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* Cover texture overlay */
+.cover-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 2px,
+            rgba(0, 0, 0, 0.05) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 2px,
+            rgba(0, 0, 0, 0.05) 4px
+        );
+    opacity: 0.3;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.series-banner {
+    font-family: var(--font-special);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--paper-cream);
+    background: rgba(44, 24, 16, 0.6);
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--paper-cream);
+    text-transform: uppercase;
+}
+
+.cover-title {
+    font-family: var(--font-title);
+    color: var(--paper-cream);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 1rem 0;
+}
+
+.title-line-1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.3em;
+    font-weight: 400;
+}
+
+.title-line-2 {
+    font-size: 4rem;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+}
+
+.title-line-3 {
+    font-size: 3rem;
+    letter-spacing: 0.25em;
+    font-weight: 400;
+}
+
+.cover-illustration {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem 0;
+    opacity: 0.9;
+}
+
+.cover-illustration svg {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.cover-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--paper-cream);
+    font-style: italic;
+    margin: 1rem 0;
+    max-width: 80%;
+}
+
+.author-name {
+    font-family: var(--font-special);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-cream);
+    margin: 1rem 0;
+}
+
+.cover-number {
+    font-family: var(--font-special);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: rgba(244, 232, 208, 0.7);
+    text-transform: uppercase;
+}
+
+.enter-button-wrapper {
+    margin-top: 1.5rem;
+}
+
+.enter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-dark);
+    background: var(--paper-cream);
+    padding: 0.9rem 2rem;
+    border: 3px solid var(--ink-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.enter-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+
+.button-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.enter-button:hover .button-arrow {
+    transform: translateX(4px);
+}
+
+.spine-shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+    pointer-events: none;
+}
+
+/* ----- STORY PAGE STYLING ----- */
+.book-page {
+    width: 850px;
+    max-width: 95vw;
+    min-height: 600px;
+    background: var(--paper-cream);
+    border: 2px solid var(--ink-brown);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 80px rgba(139, 69, 19, 0.1);
+    position: relative;
+    padding: var(--page-margin);
+    animation: pageOpen 0.6s ease-out;
+}
+
+@keyframes pageOpen {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotateX(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* Aged paper texture */
+.page-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(139, 69, 19, 0.02) 1px,
+            rgba(139, 69, 19, 0.02) 2px
+        );
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.page-header {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ink-brown);
+}
+
+.page-number {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--ink-brown);
+    text-align: right;
+}
+
+.page-content {
+    position: relative;
+    z-index: 1;
+}
+
+.chapter-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--ink-dark);
+    text-align: center;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.chapter-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: var(--accent-sepia);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.story-text {
+    margin-bottom: 2.5rem;
+}
+
+.story-text p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+.first-paragraph {
+    text-indent: 0;
+}
+
+.dropcap {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    line-height: 0.8;
+    float: left;
+    margin: 0.1rem 0.5rem 0 0;
+    color: var(--accent-sepia);
+}
+
+/* ----- CHOICE BOXES (Main Story Page) ----- */
+.choices {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.choice-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.choice-box {
+    background: var(--paper-aged);
+    border: 3px solid var(--ink-brown);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 var(--shadow-color);
+    position: relative;
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.choice-box:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--shadow-color);
+    background: #f9f0dd;
+}
+
+.choice-icon {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.choice-text strong {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--ink-dark);
+}
+
+.choice-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink-brown);
+    margin: 0;
+}
+
+.page-ref {
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    color: var(--accent-sepia);
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+.footer-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(139, 69, 19, 0.08);
+    border-left: 4px solid var(--accent-sepia);
+    font-style: italic;
+    color: var(--ink-brown);
+}
+
+/* ----- PROJECT CARDS ----- */
+.projects-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.project-card {
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    padding: 1.8rem;
+    box-shadow: 3px 3px 0 var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover:not(.placeholder) {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 0 var(--shadow-color);
+}
+
+.project-card.placeholder {
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.project-header {
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--ink-dark);
+    margin-bottom: 0.8rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-family: var(--font-special);
+    font-size: 0.7rem;
+    background: var(--ink-dark);
+    color: var(--paper-cream);
+    padding: 0.3rem 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.project-description {
+    margin: 1.2rem 0;
+    color: var(--ink-brown);
+    line-height: 1.6;
+}
+
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.2rem 0;
+    padding: 1rem;
+    background: rgba(139, 69, 19, 0.05);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.detail-label {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--accent-sepia);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.detail-value {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--ink-dark);
+    font-weight: 600;
+}
+
+.project-links {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+.project-link {
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    color: var(--accent-sepia);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.project-link:hover {
+    color: var(--ink-dark);
+}
+
+/* ----- ASSESSMENTS & LEADERSHIP ----- */
+.assessment-section {
+    margin: 2rem 0;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--ink-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ink-brown);
+    text-align: center;
+}
+
+.assessment-card {
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 3px 3px 0 var(--shadow-color);
+}
+
+.assessment-card.placeholder {
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.assessment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.assessment-name {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+}
+
+.assessment-date {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--accent-sepia);
+    letter-spacing: 0.05em;
+}
+
+.assessment-result {
+    margin: 1.2rem 0;
+}
+
+.result-badge {
+    display: inline-block;
+    font-family: var(--font-special);
+    font-size: 0.9rem;
+    background: var(--ink-dark);
+    color: var(--paper-cream);
+    padding: 0.6rem 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.strengths-list {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.strength-badge {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: var(--accent-sepia);
+    color: var(--paper-cream);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+/* EQ Scores */
+.eq-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.eq-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 70px;
+    gap: 1rem;
+    align-items: center;
+}
+
+.eq-label {
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    color: var(--ink-brown);
+}
+
+.eq-bar {
+    height: 20px;
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    position: relative;
+}
+
+.eq-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--score, 0%);
+    background: var(--accent-sepia);
+    transition: width 1s ease-out;
+}
+
+.eq-score {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--ink-dark);
+    text-align: right;
+    font-weight: 600;
+}
+
+.assessment-insights {
+    margin-top: 1.2rem;
+    color: var(--ink-brown);
+    line-height: 1.6;
+}
+
+.assessment-insights p {
+    margin-bottom: 0.8rem;
+}
+
+/* ----- PUBLICATIONS ----- */
+.publications-section {
+    margin: 2rem 0;
+}
+
+.publication-entry {
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 3px 3px 0 var(--shadow-color);
+}
+
+.publication-entry.placeholder {
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.publication-header {
+    margin-bottom: 1rem;
+}
+
+.publication-title {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.publication-meta {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.pub-type,
+.pub-date,
+.pub-venue {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--accent-sepia);
+    letter-spacing: 0.05em;
+}
+
+.pub-type {
+    text-transform: uppercase;
+}
+
+.publication-abstract {
+    margin: 1.2rem 0;
+    color: var(--ink-brown);
+    line-height: 1.6;
+}
+
+.publication-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pub-link {
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    color: var(--accent-sepia);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.pub-link:hover {
+    color: var(--ink-dark);
+}
+
+.citation-count,
+.read-count {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--ink-brown);
+    font-style: italic;
+}
+
+/* ----- NARRATIVE & INFO BOXES ----- */
+.narrative-box,
+.philosophy-box,
+.thought-leadership-box {
+    background: rgba(139, 69, 19, 0.08);
+    border-left: 5px solid var(--accent-sepia);
+    padding: 1.8rem;
+    margin: 2rem 0;
+}
+
+.narrative-box h3,
+.philosophy-box strong,
+.thought-leadership-box h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+    margin-bottom: 0.8rem;
+}
+
+.philosophy-box p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.contributions-list {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.contributions-list li {
+    margin-bottom: 0.6rem;
+    color: var(--ink-brown);
+}
+
+/* ----- MINI NAVIGATION CHOICES ----- */
+.navigation-choices {
+    margin: 3rem 0 2rem 0;
+}
+
+.choices-header {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--ink-dark);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.mini-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.mini-choice {
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    padding: 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0 var(--shadow-color);
+    text-align: center;
+}
+
+.mini-choice:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--shadow-color);
+    background: #f9f0dd;
+}
+
+.mini-choice .choice-text {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--ink-dark);
+}
+
+.mini-choice .page-ref {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--accent-sepia);
+    letter-spacing: 0.05em;
+}
+
+/* ----- FINAL PAGE ELEMENTS ----- */
+.final-page-note {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(139, 69, 19, 0.05);
+    border: 2px dashed var(--ink-brown);
+}
+
+.final-page-note h3,
+.final-page-note h4 {
+    font-family: var(--font-title);
+    color: var(--ink-dark);
+    margin-bottom: 1rem;
+}
+
+.final-page-note h3 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.final-page-note h4 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+.contact-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.contact-links a {
+    font-family: var(--font-special);
+    font-size: 0.9rem;
+    color: var(--accent-sepia);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--ink-brown);
+    transition: all 0.3s ease;
+    background: var(--paper-aged);
+    letter-spacing: 0.05em;
+}
+
+.contact-links a:hover {
+    background: var(--ink-dark);
+    color: var(--paper-cream);
+}
+
+/* ----- PAGE FOOTER ----- */
+.page-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--ink-brown);
+    text-align: center;
+}
+
+.back-link {
+    font-family: var(--font-special);
+    font-size: 0.85rem;
+    color: var(--accent-sepia);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.back-link:hover {
+    color: var(--ink-dark);
+}
+
+.footer-flourish {
+    font-size: 1.5rem;
+    color: var(--accent-sepia);
+    margin-bottom: 1rem;
+}
+
+.the-end {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--ink-brown);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+/* ----- LEADERSHIP PHILOSOPHY ----- */
+.leadership-philosophy {
+    margin: 2.5rem 0;
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+@media (max-width: 768px) {
+    :root {
+        --page-margin: 1.5rem;
+    }
+    
+    body {
+        padding: 1rem;
+        font-size: 16px;
+    }
+    
+    .book-cover {
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .title-line-2 {
+        font-size: 3rem;
+    }
+    
+    .title-line-1,
+    .title-line-3 {
+        font-size: 2rem;
+    }
+    
+    .chapter-title {
+        font-size: 2rem;
+    }
+    
+    .choice-box {
+        grid-template-columns: 50px 1fr;
+        grid-template-rows: auto auto;
+    }
+    
+    .choice-box .page-ref {
+        grid-column: 2;
+        text-align: left;
+    }
+    
+    .eq-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .mini-choices {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----- PRINT STYLES ----- */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .book-page {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .choice-box,
+    .project-card,
+    .assessment-card,
+    .publication-entry {
+        break-inside: avoid;
+    }
+}
+
+/* ----- ACCESSIBILITY ----- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
