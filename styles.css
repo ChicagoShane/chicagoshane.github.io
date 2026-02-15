@@ -113,9 +113,9 @@ body::before {
 
 /* ----- COVER PAGE STYLING ----- */
 .book-cover {
-    width: 540px;
+    width: 560px;
     max-width: 90vw;
-    min-height: 720px;
+    min-height: 620px;
     height: auto;
     max-height: none;
     background: linear-gradient(135deg, #e5d8c5 0%, #daceba 100%);
