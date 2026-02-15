@@ -115,7 +115,7 @@ body::before {
 .book-cover {
     width: 540px;
     max-width: 90vw;
-    min-height: 800px;
+    min-height: 720px;
     height: auto;
     max-height: none;
     background: linear-gradient(135deg, #e5d8c5 0%, #daceba 100%);
