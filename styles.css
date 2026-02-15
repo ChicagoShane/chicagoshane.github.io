@@ -140,20 +140,34 @@ body::before {
     border-radius: 2px;
 }
 
-.begin-button-overlay {
-    position: absolute;
-    left: 27%;
-    right: 20%;
-    bottom: 8.5%;
-    height: 5%;
+.full-cover-link {
+    display: block;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 10;
+    position: relative;
+    z-index: 2;
 }
 
-.begin-button-overlay:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
+.full-cover-link:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+.postit-note {
+    position: absolute;
+    bottom: -3%;
+    right: -8%;
+    width: 35%;
+    height: auto;
+    transform: rotate(2deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.postit-note:hover {
+    transform: rotate(2deg) scale(1.05);
 }
 
 .book-cover-image-container.revealed {
