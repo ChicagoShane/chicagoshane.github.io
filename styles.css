@@ -76,7 +76,7 @@ body::before {
 .skip-link {
     position: absolute;
     top: 1rem;
-    right: calc(50% - 740px);
+    right: calc(50% - 420px);
     z-index: 100;
     font-family: 'Crimson Text', Georgia, serif;
     font-size: 0.75rem;
@@ -126,6 +126,48 @@ body::before {
     transform: rotateY(-5deg) rotateX(2deg);
     transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
     animation: bookAppear 1s ease-out forwards;
+}
+
+/* ----- IMAGE-BASED BOOK COVER ----- */
+.book-cover-image-container {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
+    animation: bookAppear 1s ease-out forwards;
+}
+
+.book-cover-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+}
+
+.begin-button-overlay {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 3.5%;
+    height: 5%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.begin-button-overlay:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.book-cover-image-container.revealed {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.book-cover-image-container:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
 }
 
 @keyframes bookAppear {

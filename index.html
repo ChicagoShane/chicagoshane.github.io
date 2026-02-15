@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Data Adventurer - A Portfolio Journey</title>
     <meta name="description" content="An interactive Choose Your Own Adventure-style portfolio showcasing data projects, leadership skills, and publications">
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=21">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -13,41 +13,19 @@
 <body class="cover-page">
     <div class="book-wrapper">
         <a href="projects.html" class="skip-link">Skip the Story →</a>
-        <div class="book-cover">
-            <div class="cover-texture"></div>
-            <div class="cover-content">
-                <div class="series-banner">CHOOSE YOUR OWN ADVENTURE</div>
-                
-                <div class="hero-tagline">
-                    YOU'RE THE HERO OF THE STORY!<br>
-                    CHOOSE YOUR PATH THROUGH SHANE'S DATA & LEADERSHIP JOURNEY!
-                </div>
-                
-                <h1 class="cover-title">
-                    THE DATA<br>ADVENTURER
-                </h1>
-                
-                <div class="author-name">BY SHANE DUNKLE</div>
-                
-                <div class="cover-illustration">
-                    <img src="cyoadata.png" alt="Data analyst working at computer with visualizations" />
-                </div>
-            
-                <div class="enter-button-wrapper">
-                    <a href="story.html" class="enter-button">
-                        BEGIN YOUR ADVENTURE
-                    </a>
-                </div>
-            </div>
-            
-            <div class="spine-shadow"></div>
+        <div class="book-cover-image-container">
+            <img src="book_cover.png" alt="The Data Adventurer - Choose Your Own Adventure Book Cover" class="book-cover-img" usemap="#bookmap">
+            <map name="bookmap">
+                <area shape="rect" coords="205,1410,819,1485" href="story.html" alt="Begin Your Adventure">
+            </map>
+            <a href="story.html" class="begin-button-overlay" aria-label="Begin Your Adventure"></a>
         </div>
     </div>
     
     <script>
         // Add entrance animation
         window.addEventListener('load', () => {
-            document.querySelector('.book-cover').classList.add('revealed');
+            document.querySelector('.book-cover-image-container').classList.add('revealed');
         });
     </script>
 </body>
