@@ -157,10 +157,8 @@ body::before {
     position: absolute;
     bottom: -3%;
     left: 100%;
-    margin-left: 0.5rem;
-    width: 49%;
+    width: 64%;
     height: auto;
-    transform: rotate(2deg);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
     z-index: 5;
@@ -168,7 +166,7 @@ body::before {
 }
 
 .postit-note:hover {
-    transform: rotate(2deg) scale(1.05);
+    transform: scale(1.05);
 }
 
 .book-cover-image-container.revealed {
