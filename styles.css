@@ -78,9 +78,9 @@ body::before {
     top: 1rem;
     right: calc(50% - 770px);
     z-index: 100;
-    font-family: var(--font-special);
+    font-family: 'Crimson Text', Georgia, serif;
     font-size: 0.75rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-decoration: none;
     padding: 0.5rem 0.9rem;
     background: rgba(244, 232, 208, 0.95);
@@ -89,6 +89,9 @@ body::before {
     transition: all 0.3s ease;
     text-transform: uppercase;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .skip-link:hover {
@@ -100,6 +103,8 @@ body::before {
 
 .book-page .skip-link {
     background: rgba(232, 220, 196, 0.95);
+    right: 1rem;
+    top: 1rem;
 }
 
 .book-page .skip-link:hover {
