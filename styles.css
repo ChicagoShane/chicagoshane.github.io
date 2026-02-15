@@ -72,7 +72,7 @@ body::before {
     perspective: 2000px;
 }
 
-/* ----- SKIP LINK (for impatient recruiters) ----- */
+/* ----- SKIP LINK ----- */
 .skip-link {
     position: absolute;
     top: 1rem;
