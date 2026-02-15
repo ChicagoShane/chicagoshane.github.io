@@ -6,7 +6,7 @@
 /* ----- CSS VARIABLES ----- */
 :root {
     /* Vintage Color Palette */
-    --paper-cream: #f1d9bb;
+    --paper-cream: #f4e8d0;
     --paper-aged: #e8dcc4;
     --ink-dark: #2c1810;
     --ink-brown: #4a3728;
@@ -113,7 +113,7 @@ body::before {
     min-height: 800px;
     height: auto;
     max-height: none;
-    background: linear-gradient(135deg, #f1d9bb 20%, #e8dcc4 100%);
+    background: linear-gradient(135deg, #e0d4c0 0%, #d9cdb7 100%);
     border: 3px solid var(--ink-brown);
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.5),
@@ -212,17 +212,18 @@ body::before {
 }
 
 .hero-tagline {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 0.85rem;
     color: var(--ink-dark);
     text-align: center;
-    line-height: 2.0;
+    line-height: 1.5;
     margin: 0.8rem 0 1rem 0;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
 }
 
 .cover-title {
