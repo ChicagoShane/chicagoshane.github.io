@@ -155,9 +155,9 @@ body::before {
 
 .postit-note {
     position: absolute;
-    bottom: -3%;
+    bottom: 0;
     left: 100%;
-    width: 64%;
+    width: 77%;
     height: auto;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;

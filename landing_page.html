@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Data Adventurer - Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .landing-container {
+            position: relative;
+            max-width: 1400px;
+            width: 90vw;
+            margin: auto;
+        }
+        
+        .desk-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Clickable area for the book */
+        .book-button {
+            position: absolute;
+            left: 26%;
+            top: 8%;
+            width: 38%;
+            height: 84%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        
+        .book-button:hover {
+            background-color: rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .book-button:active {
+            transform: scale(0.98);
+        }
+        
+        /* Clickable area for the eraser */
+        .eraser-button {
+            position: absolute;
+            left: 17%;
+            top: 53%;
+            width: 13%;
+            height: 16%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .eraser-button:hover {
+            background-color: rgba(255, 150, 150, 0.15);
+            box-shadow: 0 0 20px rgba(255, 150, 150, 0.4);
+        }
+        
+        .eraser-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* Tooltip styling */
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+            z-index: 100;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .book-button:hover .tooltip,
+        .eraser-button:hover .tooltip {
+            opacity: 1;
+        }
+        
+        .book-button .tooltip {
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .eraser-button .tooltip {
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Subtle pulsing animation to draw attention */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+            50% {
+                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.3);
+            }
+        }
+        
+        @keyframes pulse-eraser {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 150, 150, 0);
+            }
+            50% {
+                box-shadow: 0 0 15px 3px rgba(255, 150, 150, 0.3);
+            }
+        }
+        
+        .book-button {
+            animation: pulse 3s infinite;
+        }
+        
+        .eraser-button {
+            animation: pulse-eraser 3s infinite 0.5s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .landing-container {
+                width: 95vw;
+            }
+            
+            .tooltip {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <img src="deskfull.png" alt="The Data Adventurer" class="desk-image">
+        
+        <!-- Book clickable area -->
+        <a href="story.html" class="book-button" title="Begin Your Adventure">
+            <div class="tooltip">📖 Begin Your Adventure</div>
+        </a>
+        
+        <!-- Eraser clickable area -->
+        <a href="projects.html" class="eraser-button" title="Skip the Story">
+            <div class="tooltip">⏭️ Skip the Story</div>
+        </a>
+    </div>
+</body>
+</html>
