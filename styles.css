@@ -33,7 +33,9 @@
 
 body {
     font-family: var(--font-body);
-    background: linear-gradient(135deg, #3d2817 0%, #5a4332 100%);
+    background: url('desk.png') center center;
+    background-size: cover;
+    background-attachment: fixed;
     color: var(--ink-dark);
     line-height: 1.7;
     font-size: 18px;
@@ -45,7 +47,7 @@ body {
     position: relative;
 }
 
-/* Ambient wood grain background */
+/* Subtle vignette overlay for depth */
 body::before {
     content: '';
     position: fixed;
@@ -53,14 +55,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(0,0,0,0.03) 2px,
-            rgba(0,0,0,0.03) 4px
-        );
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
     pointer-events: none;
     z-index: 0;
 }
