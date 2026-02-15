@@ -76,7 +76,7 @@ body::before {
 .skip-link {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: calc(50% - 340px);
     z-index: 100;
     font-family: var(--font-special);
     font-size: 0.75rem;
@@ -100,6 +100,8 @@ body::before {
 
 .book-page .skip-link {
     background: rgba(232, 220, 196, 0.95);
+    right: 1rem;
+    top: 1rem;
 }
 
 .book-page .skip-link:hover {
