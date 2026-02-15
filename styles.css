@@ -257,9 +257,11 @@ body::before {
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4));
 }
 
-.cover-illustration svg {
+.cover-illustration img {
     width: 100%;
     height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .cover-subtitle {
