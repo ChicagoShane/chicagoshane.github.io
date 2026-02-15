@@ -113,7 +113,7 @@ body::before {
     min-height: 800px;
     height: auto;
     max-height: none;
-    background: linear-gradient(135deg, #e0d4c0 0%, #d9cdb7 100%);
+    background: linear-gradient(135deg, #d5c8b0 0%, #cbbaa0 100%);
     border: 3px solid var(--ink-brown);
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.5),
