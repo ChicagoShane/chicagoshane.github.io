@@ -14,7 +14,7 @@
     --accent-gold: #b8860b;
     --shadow-color: rgba(44, 24, 16, 0.2);
     
-    /* Typography */h
+    /* Typography */hh
     --font-title: 'Merriweather', 'Georgia', 'Times New Roman', serif;
     --font-body: 'Crimson Text', 'Georgia', serif;
     --font-special: 'Special Elite', 'Courier New', monospace;
@@ -34,7 +34,7 @@
 body {
     font-family: var(--font-body);
             background-color: #3d1f0d;
-       background: url('desk.png') center center;
+       background: url('deskfull.png') center center;
     background-size: cover;
     background-attachment: fixed;
     color: var(--ink-dark);
