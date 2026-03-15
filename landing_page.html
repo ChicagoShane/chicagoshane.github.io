@@ -16,15 +16,16 @@
             background: url('desk.png') center center / cover no-repeat fixed;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
         .landing-container {
             position: relative;
-            max-width: 1400px;
-            width: 90vw;
+            max-width: 2800px;
+            width: 180vw;
             margin: auto;
         }
         
@@ -140,7 +141,7 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .landing-container {
-                width: 95vw;
+                width: 180vw;
             }
             
             .tooltip {
