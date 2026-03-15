@@ -34,7 +34,7 @@
 body {
     font-family: var(--font-body);
             
-       background: #3d1f0d;
+       background: url('desk.png') center center / cover no-repeat fixed;
     
     
     color: var(--ink-dark);
