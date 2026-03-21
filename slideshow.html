@@ -2,7 +2,15 @@
 
 
 
+
+
+
+
 <html lang="en">
+
+
+
+
 
 
 
@@ -10,7 +18,15 @@
 
 
 
+
+
+
+
     <meta charset="UTF-8">
+
+
+
+
 
 
 
@@ -18,7 +34,15 @@
 
 
 
+
+
+
+
     <title>Video Game Sales Prediction Model - Presentation</title>
+
+
+
+
 
 
 
@@ -26,7 +50,15 @@
 
 
 
+
+
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+
 
 
 
@@ -34,7 +66,15 @@
 
 
 
+
+
+
+
     <style>
+
+
+
+
 
 
 
@@ -42,67 +82,44 @@
 
 
 
+
+
+
+
         body {
-
-
-
             background: url('desk.png') center/cover fixed no-repeat;
-
-
-
             color: #e0e0e0;
-
-
-
             font-family: 'Merriweather', serif;
-
-
-
-            min-height: 100vh;
-
-
-
+            height: 100vh;
+            overflow: hidden;
             display: flex;
-
-
-
             flex-direction: column;
-
-
-
             align-items: center;
-
-
-
             justify-content: center;
-
-
-
+            margin: 0;
+            padding: 0;
         }
+
+
+
+
 
 
 
         .slideshow-container {
-
-
-
             position: relative;
-
-
-
             width: 95vw;
-
-
-
             max-width: 1200px;
-
-
-
-            margin: 5px auto;
-
-
-
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
         }
+
+
+
+
 
 
 
@@ -110,7 +127,15 @@
 
 
 
+
+
+
+
             display: none;
+
+
+
+
 
 
 
@@ -118,37 +143,49 @@
 
 
 
+
+
+
+
             animation: fadeIn 0.4s ease-in-out;
 
 
 
+
+
+
+
         }
 
 
 
-        .slide.active { display: block; }
+
+
+
+
+        .slide.active { display: flex; align-items: center; justify-content: center; }
+
+
+
+
 
 
 
         .slide img {
-
+            max-width: 95vw;
+            max-height: calc(100vh - 110px);
             width: auto;
-
-            max-width: 100%;
-
             height: auto;
-
-            max-height: calc(100vh - 140px);
-
             display: block;
-
             margin: 0 auto;
-
             border-radius: 8px;
-
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-
+            object-fit: contain;
         }
+
+
+
+
 
 
 
@@ -156,7 +193,15 @@
 
 
 
+
+
+
+
             from { opacity: 0; }
+
+
+
+
 
 
 
@@ -164,37 +209,30 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
         .controls {
-
-
-
             display: flex;
-
-
-
             align-items: center;
-
-
-
             justify-content: center;
-
-
-
             gap: 24px;
-
-
-
-            margin-top: 5px;
-
-            padding: 6px;
-
-
-
+            padding: 4px;
+            flex-shrink: 0;
         }
+
+
+
+
 
 
 
@@ -202,7 +240,15 @@
 
 
 
+
+
+
+
             background: rgba(255,255,255,0.1);
+
+
+
+
 
 
 
@@ -210,11 +256,23 @@
 
 
 
+
+
+
+
             color: #e0e0e0;
 
 
 
+
+
+
+
             font-size: 24px;
+
+
+
+
 
 
 
@@ -222,7 +280,15 @@
 
 
 
+
+
+
+
             height: 50px;
+
+
+
+
 
 
 
@@ -230,11 +296,23 @@
 
 
 
+
+
+
+
             cursor: pointer;
 
 
 
+
+
+
+
             transition: all 0.2s;
+
+
+
+
 
 
 
@@ -242,7 +320,15 @@
 
 
 
+
+
+
+
             align-items: center;
+
+
+
+
 
 
 
@@ -250,7 +336,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -258,7 +352,15 @@
 
 
 
+
+
+
+
             background: rgba(255,255,255,0.2);
+
+
+
+
 
 
 
@@ -266,7 +368,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -274,7 +384,15 @@
 
 
 
+
+
+
+
             font-family: 'Special Elite', cursive;
+
+
+
+
 
 
 
@@ -282,7 +400,15 @@
 
 
 
+
+
+
+
             color: #aaa;
+
+
+
+
 
 
 
@@ -290,27 +416,35 @@
 
 
 
+
+
+
+
             text-align: center;
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
         .title-bar {
-
-
-
             text-align: center;
-
-
-
-            padding: 10px;
-
-
-
+            padding: 6px;
+            flex-shrink: 0;
         }
+
+
+
+
 
 
 
@@ -318,7 +452,15 @@
 
 
 
+
+
+
+
             font-family: 'Special Elite', cursive;
+
+
+
+
 
 
 
@@ -326,7 +468,15 @@
 
 
 
+
+
+
+
             color: #e0e0e0;
+
+
+
+
 
 
 
@@ -334,7 +484,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -342,7 +500,15 @@
 
 
 
+
+
+
+
             font-family: 'Crimson Text', serif;
+
+
+
+
 
 
 
@@ -350,7 +516,15 @@
 
 
 
+
+
+
+
             font-size: 14px;
+
+
+
+
 
 
 
@@ -358,7 +532,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -366,7 +548,15 @@
 
 
 
+
+
+
+
             color: #888;
+
+
+
+
 
 
 
@@ -374,7 +564,15 @@
 
 
 
+
+
+
+
             font-family: 'Crimson Text', serif;
+
+
+
+
 
 
 
@@ -382,7 +580,15 @@
 
 
 
+
+
+
+
             margin-top: 10px;
+
+
+
+
 
 
 
@@ -390,11 +596,23 @@
 
 
 
+
+
+
+
             transition: color 0.2s;
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -402,7 +620,15 @@
 
 
 
+
+
+
+
         .fullscreen-btn {
+
+
+
+
 
 
 
@@ -410,7 +636,15 @@
 
 
 
+
+
+
+
             border: 1px solid rgba(255,255,255,0.15);
+
+
+
+
 
 
 
@@ -418,7 +652,15 @@
 
 
 
+
+
+
+
             font-size: 13px;
+
+
+
+
 
 
 
@@ -426,7 +668,15 @@
 
 
 
+
+
+
+
             border-radius: 4px;
+
+
+
+
 
 
 
@@ -434,7 +684,15 @@
 
 
 
+
+
+
+
             font-family: 'Crimson Text', serif;
+
+
+
+
 
 
 
@@ -442,7 +700,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -450,7 +716,15 @@
 
 
 
+
+
+
+
             color: #ccc;
+
+
+
+
 
 
 
@@ -458,7 +732,15 @@
 
 
 
+
+
+
+
         }
+
+
+
+
 
 
 
@@ -466,7 +748,15 @@
 
 
 
+
+
+
+
 </head>
+
+
+
+
 
 
 
@@ -474,7 +764,15 @@
 
 
 
+
+
+
+
     <div class="title-bar">
+
+
+
+
 
 
 
@@ -482,11 +780,27 @@
 
 
 
+
+
+
+
         <p>University of Chicago DSI - Machine Learning I - Final Project Winter 2026</p>
 
 
 
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -498,7 +812,15 @@
 
 
 
+
+
+
+
         <div class="slide active"><img src="slides/slide-01.jpg" alt="Slide 1"></div>
+
+
+
+
 
 
 
@@ -506,7 +828,15 @@
 
 
 
+
+
+
+
         <div class="slide"><img src="slides/slide-03.jpg" alt="Slide 3"></div>
+
+
+
+
 
 
 
@@ -514,7 +844,15 @@
 
 
 
+
+
+
+
         <div class="slide"><img src="slides/slide-05.jpg" alt="Slide 5"></div>
+
+
+
+
 
 
 
@@ -522,7 +860,15 @@
 
 
 
+
+
+
+
         <div class="slide"><img src="slides/slide-07.jpg" alt="Slide 7"></div>
+
+
+
+
 
 
 
@@ -530,7 +876,15 @@
 
 
 
+
+
+
+
         <div class="slide"><img src="slides/slide-09.jpg" alt="Slide 9"></div>
+
+
+
+
 
 
 
@@ -538,11 +892,27 @@
 
 
 
+
+
+
+
         <div class="slide"><img src="slides/slide-11.jpg" alt="Slide 11"></div>
 
 
 
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -554,7 +924,15 @@
 
 
 
+
+
+
+
         <button class="nav-btn" onclick="changeSlide(-1)">&larr;</button>
+
+
+
+
 
 
 
@@ -562,7 +940,15 @@
 
 
 
+
+
+
+
         <button class="nav-btn" onclick="changeSlide(1)">&rarr;</button>
+
+
+
+
 
 
 
@@ -570,7 +956,19 @@
 
 
 
+
+
+
+
     </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -586,7 +984,19 @@
 
 
 
+
+
+
+
+
+
+
+
     <script>
+
+
+
+
 
 
 
@@ -594,11 +1004,23 @@
 
 
 
+
+
+
+
         const slides = document.querySelectorAll('.slide');
 
 
 
+
+
+
+
         const counter = document.getElementById('counter');
+
+
+
+
 
 
 
@@ -610,7 +1032,19 @@
 
 
 
+
+
+
+
+
+
+
+
         function showSlide(n) {
+
+
+
+
 
 
 
@@ -618,7 +1052,15 @@
 
 
 
+
+
+
+
             current = (n + total) % total;
+
+
+
+
 
 
 
@@ -626,11 +1068,27 @@
 
 
 
+
+
+
+
             counter.textContent = (current + 1) + ' / ' + total;
 
 
 
+
+
+
+
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -642,11 +1100,27 @@
 
 
 
+
+
+
+
             showSlide(current + dir);
 
 
 
+
+
+
+
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -658,7 +1132,15 @@
 
 
 
+
+
+
+
             const el = document.getElementById('slideshow');
+
+
+
+
 
 
 
@@ -666,7 +1148,15 @@
 
 
 
+
+
+
+
             else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+
+
+
+
 
 
 
@@ -678,7 +1168,19 @@
 
 
 
+
+
+
+
+
+
+
+
         document.addEventListener('keydown', (e) => {
+
+
+
+
 
 
 
@@ -686,7 +1188,15 @@
 
 
 
+
+
+
+
             if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+
+
+
+
 
 
 
@@ -694,7 +1204,15 @@
 
 
 
+
+
+
+
         });
+
+
+
+
 
 
 
@@ -702,11 +1220,23 @@
 
 
 
+
+
+
+
 </body>
 
 
 
+
+
+
+
 </html>
+
+
+
+
 
 
 
