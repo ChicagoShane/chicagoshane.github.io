@@ -59,22 +59,25 @@
                             <div class="project-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">XGBoost</span>
+                                <span class="tag">Prophet</span>
+                                <span class="tag">SARIMAX</span>
                                 <span class="tag">Time Series</span>
                                 <span class="tag">MySQL</span>
                                 <span class="tag">MongoDB</span>
+                                <span class="tag">Neo4J</span>
                             </div>
                         </div>
                         <div class="project-description">
-                            <p>Built the data engineering pipeline and XGBoost model for a 4-model hourly electricity demand bake-off on three years of EIA-930 ERCOT data. Engineered the canonical staging artifact&mdash;26,304 rows across a shifting schema&mdash;that every downstream notebook depends on.</p>
+                            <p>Built the data engineering pipeline and XGBoost model for a 3-model hourly electricity demand bake-off on five years of EIA-930 ERCOT data. Engineered the canonical staging artifact&mdash;43,824 rows across a shifting 44&rarr;65-column schema&mdash;that every downstream notebook depends on. With honest 24-hour-ahead inputs, XGBoost and Prophet land within 0.01% of each other at ~4.3% MAPE; ERCOT&rsquo;s day-ahead benchmark remains the leader at 2.49%.</p>
                         </div>
                         <div class="project-details">
                             <div class="detail-item">
-                                <span class="detail-label">Models:</span>
-                                <span class="detail-value">SARIMA, Prophet, XGBoost, LSTM</span>
+                                <span class="detail-label">Best Model MAPE:</span>
+                                <span class="detail-value">4.28% (Prophet vs. ERCOT 2.49%)</span>
                             </div>
                             <div class="detail-item">
                                 <span class="detail-label">Dataset:</span>
-                                <span class="detail-value">26,304 hourly rows (2023&ndash;2025)</span>
+                                <span class="detail-value">43,824 hourly rows (2021&ndash;2025)</span>
                             </div>
                         </div>
                         <div class="project-links">
