@@ -709,7 +709,7 @@ body::before {
 
 .project-details {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     margin: 1.2rem 0;
     padding: 1rem;
@@ -1426,7 +1426,7 @@ body::before {
 
 .featured-project-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     align-items: start;
 }
