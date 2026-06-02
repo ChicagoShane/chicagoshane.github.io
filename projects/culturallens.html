@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CulturalLens: When AI Can't Read Between the Lines - The Data Adventure</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="story-page">
+<div class="book-wrapper">
+    <div class="book-page project-detail-page">
+        <div class="page-texture"></div>
+
+        <div class="page-header">
+            <div class="page-number">ML</div>
+        </div>
+
+        <div class="page-content">
+
+            <article class="project-detail">
+
+                <!-- ── HEADER ── -->
+                <header class="project-detail-header">
+                    <p class="project-eyebrow">FEATURED PROJECT &mdash; MACHINE LEARNING II &middot; ADSP 31018 &middot; SPRING 2026</p>
+                    <h1 class="chapter-title" style="font-size:2rem; margin-bottom:0.4rem;">CulturalLens</h1>
+                    <h2 class="chapter-subtitle">When AI Can&rsquo;t Read Between the Lines</h2>
+                    <p class="project-tagline">A falsifiable test of cross-cultural competence in large language models.</p>
+                </header>
+
+                <!-- ── ABOVE-THE-FOLD INTRO ── -->
+                <div class="story-text">
+                    <p class="first-paragraph">
+                        <span class="dropcap">T</span>oday&rsquo;s leading large language models are trained predominantly on English text. They can fluently describe Japanese cultural norms in the abstract, but do they actually <em>apply</em> that understanding when navigating a live social situation in Japanese? CulturalLens answers that question empirically. I built a machine learning classifier to test whether what a model learns about cultural appropriateness in English carries across to Japanese, then ran a pre-registered experiment with a fixed success threshold. The hypothesis failed decisively. The result is a clean computational confirmation of a typological theory the linguist John Hinds proposed in 1987.
+                    </p>
+                </div>
+
+                <!-- ── HERO IMAGE ── -->
+                <figure class="project-figure project-figure-hero">
+                    <img src="../assets/projects/culturallens/culturallens-hero-transfer-failure.png"
+                         alt="Bar chart showing in-distribution F1 of about 0.98 collapsing to about 0.69 across three multilingual embedding configurations when tested on Japanese responses, with a per-phenomenon breakdown showing keigo collapsing to 0.067."
+                         style="width:100%; max-width:100%; border:2px solid var(--ink-brown); box-shadow:3px 3px 0 var(--shadow-color);">
+                    <figcaption class="project-figcaption">Figure 3: Cross-lingual transfer EN&rarr;JP. Every multilingual embedding collapses to 0.691 on Japanese; keigo drops to 0.067.</figcaption>
+                </figure>
+
+                <!-- ── KEY NUMBERS ── -->
+                <div class="narrative-box">
+                    <h3>By the Numbers</h3>
+                    <div class="project-stats-row">
+                        <div class="project-stat">
+                            <span class="stat-value">0.890</span>
+                            <span class="stat-label">Within-language F1</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">0.295</span>
+                            <span class="stat-label">Cross-lingual transfer gap (threshold: 0.10)</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Positive predictions on Japanese test set</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">State-of-the-art LLMs evaluated</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">5</span>
+                            <span class="stat-label">Japanese pragmatic phenomena</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">165</span>
+                            <span class="stat-label">Expert-annotated responses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── THE FINDING ── -->
+                <section class="project-section">
+                    <h3 class="section-title">The Finding</h3>
+                    <p>The central experiment trained the classifier on English responses only, then tested it on Japanese responses without retraining. The pre-registered success criterion was a transfer gap below 0.10. Every text-based representation I tried&mdash;including LaBSE, a model explicitly pre-trained on parallel sentence pairs across 109 languages for cross-lingual alignment&mdash;produced exactly the same Japanese F1 of 0.691. The gap was 0.295, almost three times the threshold. All three multilingual text embeddings predicted &ldquo;appropriate&rdquo; for every single Japanese response. They captured nothing. The keigo phenomenon, formal honorific register, collapsed to an F1 of 0.067. The hypothesis was decisively falsified.</p>
+                </section>
+
+                <!-- ── STUDY DESIGN ── -->
+                <section class="project-section">
+                    <h3 class="section-title">The Study Design</h3>
+
+                    <figure class="project-figure">
+                        <img src="../assets/projects/culturallens/culturallens-dataset-overview.png"
+                             alt="Six-panel exploratory data analysis figure showing score distribution, class imbalance, mean appropriateness by experimental condition, mean by phenomenon, model-by-phenomenon heatmap, and response length distribution by model."
+                             style="width:100%; max-width:100%; border:2px solid var(--ink-brown); box-shadow:3px 3px 0 var(--shadow-color);">
+                        <figcaption class="project-figcaption">Figure 1: Dataset overview. Mean appropriateness drops from ~2.9 in English to 2.18 in Japanese; cultural coaching does almost nothing to help.</figcaption>
+                    </figure>
+
+                    <p>I authored 19 original Japanese pragmatic scenarios covering five culturally specific phenomena: <em>enryo</em> (ritual restraint), <em>nemawashi</em> (consensus building), <em>kuuki wo yomu</em> (reading the air), <em>tatemae</em> and <em>honne</em> (public versus private feeling), and <em>keigo</em> (honorific register). Three large language models&mdash;GPT-4o, Claude Sonnet 4.6, and Gemini 2.5 Pro&mdash;responded to every scenario under three conditions: plain English, English with cultural coaching, and fully in Japanese. That yielded 171 responses, 165 of which scored cleanly after I excluded truncated outputs. As an ACTFL Advanced High Japanese speaker, I annotated every response on a four-point pragmatic appropriateness scale. The most striking signal in the raw data is on the top right of the figure above: mean appropriateness drops from about 2.9 in English to 2.18 in Japanese. The cultural coaching prompt does almost nothing to help.</p>
+                </section>
+
+                <!-- ── THE CLASSIFIER ── -->
+                <section class="project-section">
+                    <h3 class="section-title">The Classifier</h3>
+
+                    <figure class="project-figure">
+                        <img src="../assets/projects/culturallens/culturallens-classifier-results.png"
+                             alt="Three-panel figure showing confusion matrix (1 true negative, 12 false negatives, 2 false positives, 150 true positives), a bar chart comparing frozen versus fine-tuned F1 across Random Forest and XGBoost models all clustering near 0.89, and per-phenomenon F1 with keigo lowest at 0.464."
+                             style="width:100%; max-width:100%; border:2px solid var(--ink-brown); box-shadow:3px 3px 0 var(--shadow-color);">
+                        <figcaption class="project-figcaption">Figure 2: Classifier results (per-fold, leak-free). All model configurations converge near F1 = 0.890; keigo is the hardest phenomenon at 0.464.</figcaption>
+                    </figure>
+
+                    <p>Each response was encoded as a 768-dimensional vector using multilingual Sentence BERT, then combined with structured features into a 778-dimensional representation. I trained Random Forest and XGBoost classifiers with stratified five-fold cross-validation. The final weighted F1 within a single language was 0.890, with all data leakage carefully controlled. (An earlier version of this analysis reported 0.981; that figure turned out to be inflated by test-set leakage in the fine-tuning step, which I documented and corrected. The honest 0.890 is the number that should be cited.) The classifier works within a language. The interesting question is what happens when it has to cross one.</p>
+                </section>
+
+                <!-- ── WHAT IT MEANS ── -->
+                <section class="project-section">
+                    <h3 class="section-title">What It Means</h3>
+                    <p>The fact that three completely different embedding spaces produced identical Japanese predictions means the failure cannot be blamed on any single model. The English-trained representation of cultural appropriateness simply does not exist for Japanese, even when the embedding is explicitly built to bridge languages. This is what the linguist John Hinds proposed in 1987, now confirmed at the representational level: writer-responsible languages like English and reader-responsible languages like Japanese encode meaning so differently that what is learnable in one is not learnable in the other.</p>
+                    <p>The practical implication is direct. Deploying AI in Japanese settings and evaluating it with English-style yardsticks will systematically overstate how competent these systems actually are.</p>
+
+                    <figure class="project-figure">
+                        <img src="../assets/projects/culturallens/culturallens-shap-importance.png"
+                             alt="Horizontal bar chart of top 15 SHAP feature importances, all SBERT dimensions (purple bars), showing sbert_583 and sbert_634 as the most important features with mean absolute SHAP values near 0.0075."
+                             style="width:100%; max-width:100%; border:2px solid var(--ink-brown); box-shadow:3px 3px 0 var(--shadow-color);">
+                        <figcaption class="project-figcaption">Figure 4: Top 15 features by SHAP importance. All are SBERT embedding dimensions &mdash; no structured features appear in the top 15, confirming the classifier relies on semantic representation.</figcaption>
+                    </figure>
+                </section>
+
+                <!-- ── LINKS ── -->
+                <section class="project-section">
+                    <h3 class="section-title">Project Materials</h3>
+                    <div class="project-links project-links-list">
+                        <a href="#" class="project-link coming-soon" aria-disabled="true">&#128196; Full Academic Paper <span class="coming-soon-badge">coming soon</span></a>
+                        <a href="#" class="project-link coming-soon" aria-disabled="true">&#128202; Presentation Slides <span class="coming-soon-badge">coming soon</span></a>
+                        <a href="#" class="project-link coming-soon" aria-disabled="true">&#128211; Executed Jupyter Notebook <span class="coming-soon-badge">coming soon</span></a>
+                        <a href="#" class="project-link coming-soon" aria-disabled="true">&#128187; GitHub Repository <span class="coming-soon-badge">coming soon</span></a>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- ── NAVIGATION ── -->
+            <div class="navigation-choices">
+                <h3 class="choices-header">Continue exploring:</h3>
+                <div class="mini-choices">
+                    <a href="../projects.html" class="mini-choice">
+                        <span class="choice-text">All Data Projects</span>
+                        <span class="page-ref">Turn to page 12</span>
+                    </a>
+                    <a href="../publications.html" class="mini-choice">
+                        <span class="choice-text">Publications Archive</span>
+                        <span class="page-ref">Turn to page 45</span>
+                    </a>
+                    <a href="../story.html" class="mini-choice">
+                        <span class="choice-text">Return to Crossroads</span>
+                        <span class="page-ref">Turn to page 1</span>
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- /.page-content -->
+
+        <div class="page-footer">
+            <a href="../projects.html" class="back-link">&larr; Back to Projects</a>
+        </div>
+
+    </div><!-- /.book-page -->
+</div><!-- /.book-wrapper -->
+</body>
+</html>
