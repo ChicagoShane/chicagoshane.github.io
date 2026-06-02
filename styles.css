@@ -1389,3 +1389,211 @@ body::before {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ===================================
+   CULTURALLENS — FEATURED PROJECT
+   & PROJECT DETAIL PAGE STYLES
+=================================== */
+
+/* ----- EYEBROW LABEL ----- */
+.project-eyebrow {
+    font-family: var(--font-special);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-sepia);
+    margin-bottom: 0.6rem;
+}
+
+/* ----- FEATURED PROJECT SECTION (on projects.html) ----- */
+.featured-project-section {
+    margin: 2rem 0;
+}
+
+.featured-project-card {
+    background: var(--paper-aged);
+    border: 2px solid var(--ink-brown);
+    padding: 1.8rem;
+    box-shadow: 4px 4px 0 var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.featured-project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.featured-project-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.featured-project-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--ink-dark);
+    margin-bottom: 0.4rem;
+}
+
+.featured-project-tagline {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--accent-sepia);
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+}
+
+.featured-project-description {
+    color: var(--ink-brown);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.featured-project-link {
+    font-family: var(--font-special);
+    font-size: 0.9rem;
+    color: var(--accent-sepia);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--accent-sepia);
+    padding-bottom: 1px;
+    transition: color 0.3s ease;
+}
+
+.featured-project-link:hover {
+    color: var(--ink-dark);
+    border-bottom-color: var(--ink-dark);
+}
+
+.featured-project-image {
+    margin: 0;
+}
+
+/* ----- PROJECT DETAIL PAGE ----- */
+.project-detail-page {
+    max-width: 900px;
+}
+
+.project-detail-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--ink-brown);
+    padding-bottom: 1.5rem;
+}
+
+.project-tagline {
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--accent-sepia);
+    font-size: 1.1rem;
+    margin-top: 0.4rem;
+}
+
+.project-section {
+    margin: 2.5rem 0;
+}
+
+.project-figure {
+    margin: 1.5rem 0;
+}
+
+.project-figure-hero {
+    margin: 1.5rem 0 2rem;
+}
+
+.project-figcaption {
+    font-family: var(--font-special);
+    font-size: 0.75rem;
+    color: var(--ink-brown);
+    letter-spacing: 0.03em;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ----- STATS ROW ----- */
+.project-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-stat {
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    background: rgba(244, 232, 208, 0.5);
+}
+
+.stat-value {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--accent-sepia);
+    line-height: 1.1;
+}
+
+.stat-label {
+    display: block;
+    font-family: var(--font-special);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-brown);
+    margin-top: 0.3rem;
+    line-height: 1.3;
+}
+
+/* ----- PROJECT MATERIALS LINKS ----- */
+.project-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.project-links-list .project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.coming-soon {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+}
+
+.coming-soon-badge {
+    font-family: var(--font-special);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink-brown);
+    color: var(--paper-cream);
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.4rem;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .featured-project-body {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-project-image {
+        order: -1;
+    }
+
+    .project-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
